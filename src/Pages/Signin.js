@@ -5,13 +5,14 @@ import TextField from '@material-ui/core/TextField'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button';
 import Radio from '@material-ui/core/Radio';
-import Link from '@material-ui/core/Link';
+
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import man from '../images/man.jpg';
 import logo from '../images/clique_logo.PNG';
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -135,16 +136,18 @@ function Signin()
             >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs={6} >
-                <Link href="#" variant="body2" color="black">
+            <Grid container spacing={24} justify="center">
+              <Grid item xs={6} align="center">
+                <Link to={"/ForgotPassword"}>
                   Forgot password?
                 </Link>
               </Grid>
-              <Grid item xs={6}>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+              <Grid item xs={6} align="center">
+                  
+                <Link to={"/Signup"} >
+                  Don't have an account? Sign Up
                 </Link>
+               
               </Grid>
             </Grid>
             </form>

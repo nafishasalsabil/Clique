@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import popcorn from '../images/popcorn.png';
+import man from '../images/fp.jpg';
 import logo from '../images/clique_logo.PNG';
 import { Link } from 'react-router-dom'
 
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "white",
     },
     image: {
-        backgroundImage: `url(${popcorn})`,
+        backgroundImage: `url(${man})`,
       backgroundRepeat: 'no-repeat',
       backgroundColor: "white",
    
@@ -55,56 +55,45 @@ const useStyles = makeStyles((theme) => ({
       }
 
     },
-
     signupstyle: {
         fontFamily: "Lato",
     }
   }));
   
 
-function Signup()
+function FrogotPassword()
 {
     const classes = useStyles();
-    const [username,setUsername] = useState('')
     const [email,setEmail] = useState('')
     const [pass,setPass] = useState('')
-    const [confpass,setConfpass] = useState('')
-
-
-    const [usernameError,setUsernameError] = useState(false)
+    const [confpass,setConfPass] = useState('')
     const [emailError,setEmailError] = useState(false)
     const [passError,setPassError] = useState(false)
-    const [confpassError,setconfpassError] = useState(false)
+    const [confpassError,setConfPassError] = useState(false)
     const handleSubmit = (e) =>{
         e.preventDefault()
-        setUsernameError(false)
         setEmailError(false)
         setPassError(false)
-        setconfpassError(false)
+        setConfPassError(false)
 
-        if(username=='')
-        {
-            setUsernameError(true)
-        }
         if(email=='')
         {
             setEmailError(true)
-            
         }
         if(pass=='')
         {
             setPassError(true)
+            
         }
-   
         if(confpass=='')
         {
-            setconfpassError(true)
+            setConfPassError(true)
             
         }
         
-        if(username && email && pass && confpass)
+        if(email && pass && confpass)
         {
-            console.log(username,email)
+            console.log(email,pass)
         }
     }
     return(
@@ -115,24 +104,10 @@ function Signup()
             <div className={classes.paper}>
             <img src={logo} alt="Logo" />
             <Typography variant="h3" component="h2" gutterBottom className={classes.signupstyle}>
-                 Sign Up
+                 Forgot Password?
             </Typography>
 
             <form className={classes.form} noValidate onSubmit={handleSubmit}>
-            <TextField
-              onChange={(e) =>setUsername(e.target.value)}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Username"
-              name="username"
-              autoComplete="email"
-              autoFocus
-              error={usernameError}
-           
-            />
             <TextField
               onChange={(e) =>setEmail(e.target.value)}
               variant="outlined"
@@ -145,7 +120,7 @@ function Signup()
               autoComplete="email"
               autoFocus
               error={emailError}
-           
+            //  className={classes.submit}
             />
             <TextField
              onChange={(e) =>setPass(e.target.value)}
@@ -154,22 +129,22 @@ function Signup()
               required
               fullWidth
               name="password"
-              label="Password"
+              label="New Password"
               type="password"
               id="password"
               autoComplete="current-password"
               error={passError}
             />
-            <TextField
-             onChange={(e) =>setConfpass(e.target.value)}
+             <TextField
+             onChange={(e) =>setConfPass(e.target.value)}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="confirm_password"
+              name="password"
               label="Confirm Password"
               type="password"
-              id="confirm_password"
+              id="password"
               autoComplete="current-password"
               error={confpassError}
             />
@@ -181,18 +156,9 @@ function Signup()
               
               className={classes.submit}
             >
-              Sign Up
+              Submit
             </Button>
-            <Grid container spacing={24} justify="center">
-            
-              <Grid item xs={4}>
-                  
-                <Link to={"/"} >
-                  Already have an account? 
-                </Link>
-               
-              </Grid>
-            </Grid>
+           
             </form>
             </div>
             </Grid>
@@ -201,4 +167,4 @@ function Signup()
 
     ) 
 }
-export default Signup
+export default FrogotPassword
